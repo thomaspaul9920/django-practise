@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% if error%}
+    <p style="color:red;">Email ID or password is incorrect</p>
+    <form action="/machine/{{user_id}}/main" method="post">
+        {% csrf_token %}
+        <fieldset>
+            <legend>BANK</legend>
+            <label for="email_id">Email</label><br>
+            <input type="text" id="email_id" name="email_id" value = {{email_id}}><br>
+            <label for="password">Password</label><br>
+            <input type="password" id="password" name="password" value= {{password}}><br>
+        </fieldset>
+        <input type="submit" value="main">
+        <p>Not a Member?<a href="/machine/signup"><b>SIGNUP</b></a></p>
+    </form>
+    {% else %}
+    <form action="/machine/" method="post">
+        {% csrf_token %}
+        <fieldset>
+            <legend>BANK</legend>
+            <label for="email_id">Email</label><br>
+            <input type="text" id="email_id" name="email_id"><br>
+            <label for="password">Password</label><br>
+            <input type="password" id="password" name="password"><br>
+        </fieldset>
+        <input type="submit">
+        <p>Not a Member?<a href="/machine/signup"><b>SIGNUP</b></a></p>
+    </form>
+    {% endif %}
+</body>
+</html>

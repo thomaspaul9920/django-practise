@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% if error%}
+        <p style="color:red;">An account with this email id already exists.</p>
+        <form action="/atm/signup" method="post">
+            {% csrf_token %}
+            <fieldset>
+                <legend>BANK</legend>
+                <label for="first_name">First Name</label><br>
+                <input type="text" id="first_name" name="first_name" value={{first_name}}><br>
+                <label for="last_name">Last Name</label><br>
+                <input type="text" id="last_name" name="last_name" value={{last_name}}><br>
+                <label for="email_id">Email</label><br>
+                <input type="text" id="email_id" name="email_id" value={{email_id}}><br>
+                <label for="password">Password</label><br>
+                <input type="password" id="password" name="password" value={{password}}><br>
+            </fieldset>
+            <input type="submit">
+            <p>Already Member <a href="/atm/"><b>LOGIN</b></a></p>
+        </form>
+
+    {% else %}
+    <form action="/atm/signup/" method="post">
+        {% csrf_token %}
+        <fieldset>
+            <legend>BANK</legend>
+            <label for="first_name">First Name</label><br>
+            <input type="text" id="first_name" name="first_name"><br>
+            <label for="last_name">Last Name</label><br>
+            <input type="text" id="last_name" name="last_name"><br>
+            <label for="email_id">Email</label><br>
+            <input type="text" id="email_id" name="email_id"><br>
+            <label for="password">Password</label><br>
+            <input type="password" id="password" name="password"><br>
+        </fieldset>
+        <input type="submit">
+        <p>Already a Member?<a href="/atm/"><b>LOGIN</b></a></p>
+    </form>
+    {% endif %}
+</body>
+</html>

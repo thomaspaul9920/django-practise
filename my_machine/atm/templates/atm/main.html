@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction</title>
+</head>
+<body>
+    <p>Current Balance: {{ transactions_obj.balance }}</p>
+    <form action = "{{withdraw_url}}">
+        <button type="submit">WITHDRAW</button>
+    </form>
+    <form action= "{{deposit_url}}">
+        <button type="submit">DEPOSIT</button>
+    </form>
+    <form action="{{statement_url}}">
+        <button type="submit">HISTORY</button>
+    </form>
+   
+</body>
+</html>
